@@ -101,9 +101,12 @@ saveResponse = () =>{
     else if(q == interview.length-1)
     {
         var flag = 0;
-        interview[q].comment = document.getElementById("comment").value;
-        interview[q].rating = rating;
-        rating = 0;
+        if(interview[q].rating == 0)
+        {
+            interview[q].comment = document.getElementById("comment").value;
+            interview[q].rating = rating;
+            rating = 0;
+        }
         var missed = [];
         for(var i = 0; i < interview.length; i++)
         {
