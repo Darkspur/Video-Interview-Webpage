@@ -19,3 +19,7 @@ The Webpage contains:
 
 ![](HomePage.png)
 
+### Result Page
+
+![](ResultPage.png)
+
