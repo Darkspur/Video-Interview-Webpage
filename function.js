@@ -1,3 +1,4 @@
+// Interview object array to store all the required data 
 var interview = [{"question": "Question 1","rating": 0, "comment": "No Comment"},
                 {"question": "Question 2","rating": 0, "comment": "No Comment"},
                 {"question": "Question 3","rating": 0, "comment": "No Comment"},
@@ -9,6 +10,7 @@ let q = 0;
 document.getElementById("question").innerHTML = interview[q].question;
 document.getElementById("prev").style.visibility = "hidden";
 
+// shows the next question on clicking the '>' button
 showNextQuestion = () => {
     if(q < interview.length-2)
     {
@@ -24,12 +26,14 @@ showNextQuestion = () => {
         document.getElementById("save").innerHTML = "Save & Finish";
         document.getElementById("next").style.visibility = "hidden";
     }
+    // Last question handling 
     else if(q == interview.length-1)
     {
-        alert("This is the alst question");
+        alert("This is the last question");
     }
 }
 
+// shows the previous question on clicking the '<' button
 showPrevQuestion = () => {
     if(q == interview.length-1)
     {
@@ -46,6 +50,7 @@ showPrevQuestion = () => {
         if(q == 0)
             document.getElementById("prev").style.visibility = "hidden";
     }
+    // First question handling
     else if(q == 0)
     {
         alert("Can't go back further");
@@ -53,12 +58,14 @@ showPrevQuestion = () => {
     
 }
 
+// To store the rating in a temporary variable before saving it
 var rating = 0;
 addRating = (r) => {
     rating = r
     console.log(interview[q].rating);
 }
 
+// Saving the comment and rating into the interview object for the specific question
 saveResponse = () =>{
     if(q < interview.length-2)
     {
@@ -93,6 +100,7 @@ saveResponse = () =>{
             rating = 0;
         }
         var missed = [];
+        // Running a check to make sure all questions are answered
         for(var i = 0; i < interview.length; i++)
         {
             if(interview[i].rating == 0)
@@ -106,6 +114,7 @@ saveResponse = () =>{
             console.log(missed);
             alert("You have missed questions: " + missed);
         }
+        // Saving the object in localStorage and directing to the Results page
         else if(flag == 0)
         {
             var interviewJSON = JSON.stringify(interview);
