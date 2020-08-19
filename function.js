@@ -54,26 +54,11 @@ showPrevQuestion = () => {
 }
 
 var rating = 0;
-addRating1 = () => {
-    rating = document.getElementById("ratingBtn1").value;
+addRating = (r) => {
+    rating = r
     console.log(interview[q].rating);
 }
-addRating2 = () => {
-    rating = document.getElementById("ratingBtn2").value;
-    console.log(interview[q].rating);
-}
-addRating3 = () => {
-    rating = document.getElementById("ratingBtn3").value;
-    console.log(interview[q].rating);
-}
-addRating4 = () => {
-    rating = document.getElementById("ratingBtn4").value;
-    console.log(interview[q].rating);
-}
-addRating5 = () => {
-    rating = document.getElementById("ratingBtn5").value;
-    console.log(interview[q].rating);
-}
+
 saveResponse = () =>{
     if(q < interview.length-2)
     {
