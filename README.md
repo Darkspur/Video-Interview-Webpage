@@ -17,5 +17,5 @@ The Webpage contains:
 
 ### Home Page
 
-![]
+![](HomePage.png)
 
