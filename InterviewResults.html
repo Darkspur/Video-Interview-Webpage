@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Interview Result</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="InterviewStyle.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-dark d-flex flex-row-reverse">
+            <a class="navbar-brand" href="#">
+              <img src="geass.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+              Bootstrap
+            </a>
+        </nav>
+        <div class="container pt-5" id="container">
+            <div class="card w-100">
+                <div class="card-header"><h2>Result</h2></div>
+                <div class="card-body p-4" id="result">
+
+                </div>
+        </div>
+        <script type="text/javascript">
+            var interview = (localStorage.getItem('questions'));
+            interview = JSON.parse(interview);
+            console.log(interview);
+            for(var i = 0; i < 5; i++)
+            {
+                var row = document.createElement("div");
+                row.id = "row" + i;
+                document.getElementById("result").appendChild(row);
+
+                var question = document.createElement("div");
+                document.getElementById("row" + i).appendChild(question);
+                question.id = "question";
+                question.innerHTML = "Question: " + interview[i].question;
+
+                var rating = document.createElement("div");
+                document.getElementById("row" + i).appendChild(rating);
+                rating.id = "rating";
+                rating.innerHTML = "Rating: " + interview[i].rating + "/5";
+
+                var comment = document.createElement("div");
+                document.getElementById("row" + i).appendChild(comment);
+                comment.id = "comment";
+                comment.innerHTML = "Comment:" + interview[i].comment;;
+
+                var hr = document.createElement("HR");
+                document.getElementById("result").appendChild(hr);
+                console.log(row);
+            }
+            localStorage.clear();
+        </script>
+    </body>
+</html>
